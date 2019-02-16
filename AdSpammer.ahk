@@ -34,3 +34,20 @@ SetKeyDelay, -1, -1
 SetTitleMatchMode, 3
 DetectHiddenWindows, On
 SetWorkingDir, % A_ScriptDir
+
+Gui, Base:New
+
+For Each, File in FileList(A_ScriptDir "\bin\*.jpeg") {
+	Gui, % Each ":New", -Caption -SysMenu -Border +OwnerBase, HAHAHAHAHAHAHAHA
+	Gui, % Each ":Add", Picture,, % File
+	X := Random(0, A_ScreenWidth - 300)
+	Y := Random(0, A_ScreenHeight - 200)
+	Gui, % Each ":Show", % "x" X " y" Y
+}
+Return
+
+*Esc::
+	ExitApp, 0
+
+#Include, %A_ScriptDir%\lib\
+#Include, Misc.ahk
